@@ -33,19 +33,19 @@ modified: '{{ .ModifiedTimeUTC }}'
 
 ## 1. Novels
 {{ range .Novels }}
-- **"{{ .Title }}"**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
+- **_{{ .Title }}_**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
 
 ## 2. Short Stories
 {{ range .ShortStories }}
-- **"{{ .Title }}"**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
+- **_{{ .Title }}_**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
 
 ## 3. Textbooks
 {{ range .Textbooks }}
-- **"{{ .Title }}"**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
+- **_{{ .Title }}_**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
 
 ## 4. Other
 {{ range .Other }}
-- **"{{ .Title }}"**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
+- **_{{ .Title }}_**, {{ .Author }} {{ .SymbolsWithMarkup }}{{ end }}
 `
 )
 
@@ -65,9 +65,9 @@ type BookData struct {
 }
 
 func bookFromRecord(rec []string) BookData {
-	symbolsWithMarkup := fmt.Sprintf("(`%s`)", rec[3])
+	symbolsWithMarkup := fmt.Sprintf("`%s`", rec[3])
 	if rec[4] != "" {
-		symbolsWithMarkup = fmt.Sprintf("(`%s%s`)", rec[3], rec[4])
+		symbolsWithMarkup = fmt.Sprintf("`%s%s`", rec[3], rec[4])
 	}
 
 	return BookData{
