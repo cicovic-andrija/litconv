@@ -24,6 +24,8 @@ modified: '{{ .ModifiedTimeUTC }}'
 
 # {{ .Title }}
 
+This document lists all the books in my personal library.
+
 ## Contents
 
 1. [Novels](#novels)
